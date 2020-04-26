@@ -28,7 +28,7 @@ By placing the ADC/DACs on the RF board the digital signals can be easily switch
 
 ## TT&C Control
 
-Using a RadHard TT&C processor as a reliable system controller allows reliable control of the system. A hardware RadHard watchdog can be used to automatically switch between two TT&C processors if one fails.  Ideally two TT&C buses will be used to protect against a failed transceiver bringing the bus (and whole system) down.  The TT&C controllers can be used to check the state of the main digital processing and switch between primary and secondary boards.
+Using a RadHard TT&C processor as a system controller provides reliable control of the system. A hardware RadHard watchdog can be used to automatically switch between two TT&C processors if one fails.  Ideally two TT&C buses will be used to protect against a failed transceiver bringing the bus (and whole system) down.  The TT&C controllers can be used to check the state of the main digital processing and switch between primary and secondary boards.
 
 ![State Transfer](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/state_transfer.svg "State Transfer")
 
@@ -38,6 +38,8 @@ Using a RadHard TT&C processor as a reliable system controller allows reliable c
 Clock generation has well known reliability issues in space missions.  Therefore, a simple cold redundant clocking circuit can be used as shown below.
 
 ![Redundnacy](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/oscillator_cold_spare.svg "Clock Redundnacy")
+
+The circuit will monitor the output of the primary oscillator - if it stops operating it will be disabled and the secondary oscillator automatically enabled to maintain system operation.
 
 The synthesis of the Rx and Tx RF section could also use a common circuit with a frequency double or divider.  The advantage being that the area that would be used for the secondary LO synthesiser can be used for a cold redundant synthesiser.
 
