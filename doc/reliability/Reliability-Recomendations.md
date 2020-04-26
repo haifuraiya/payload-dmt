@@ -1,6 +1,8 @@
 # Reliability Recomendations
 
-Considering the initial architecture of the Lunar Gateway amateur radio payload the following is proided as recomendations to improve the reliability of the system.
+The following details recomendations and analysis of the reliability of the initial architecture of the Lunar Gateway amateur radio payload.
+
+An initial risk analysis of the architecture was performed as the basis of these recomendations, the risk analysis can be found here: [Risk Analysis](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/Risk-Analysis.md)
 
 The system architecture is shown below with hot (red) and cold (blue) redundant systems.
 
@@ -12,7 +14,7 @@ The feasibility of adding these redundant systems is dependant on the available 
 
 The antennas, cabling and amplifiers are a single point of failure for the primary mission objective. Cabling and connectors are common failure points due to the high mechanical stresses during launch and temperature cycling. The antennas are exposed to the space environment and power amplifiers are subjected to stress from high power, voltage and temperature.  Therefore these systems are of primary concern.
 
-To mitigate the risk in these areas a power splitting and combining topology is recomended.  The C/X band patch antennas will almost certainly be an array with multiple elements. Therefore it is proposed that multiple parallel paths are formed of array elements, cabling, connectors and amplifiers.
+To mitigate the risk a power splitting and combining topology is recomended.  The C/X band patch antennas will almost certainly be an array with multiple elements. Therefore it is proposed that multiple parallel paths are formed of array elements, cabling, connectors and amplifiers. One side of the power combination/splitting is performed in free-space and the other end is performed in passive microwave power splitter/combiner topologies which are very high reliability.
 
 ![Antenna Structure](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/antenna_power_combine.svg "Antenna Structure")
 
@@ -26,14 +28,14 @@ By placing the ADC/DACs on the RF board the digital signals can be easily switch
 
 ## TT&C Control
 
-Using a RadHard TT&C processor as a reliable system controller allows reliable control of the system. A hardware RadHard watchdog can be used to automatically switch between two TT&C processors if one fails.  Ideally two TT&C buses will be used to protect against a failed transceiver bringing the bus (and whole system ) down.  The TT&C controllers can be used to check the state of the main digital processing and switch between primary and secondary boards.
+Using a RadHard TT&C processor as a reliable system controller allows reliable control of the system. A hardware RadHard watchdog can be used to automatically switch between two TT&C processors if one fails.  Ideally two TT&C buses will be used to protect against a failed transceiver bringing the bus (and whole system) down.  The TT&C controllers can be used to check the state of the main digital processing and switch between primary and secondary boards.
 
 ![State Transfer](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/state_transfer.svg "State Transfer")
 
 
 ## Clocking and Frequency Synthesis
 
-Clock generation has well known reliability issues in space missions.  Therefore, a simple cold redundant clocking can be used as shown below.
+Clock generation has well known reliability issues in space missions.  Therefore, a simple cold redundant clocking circuit can be used as shown below.
 
 ![Redundnacy](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/oscillator_cold_spare.svg "Clock Redundnacy")
 
