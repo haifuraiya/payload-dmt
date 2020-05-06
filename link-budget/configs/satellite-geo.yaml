@@ -109,7 +109,7 @@ statistical :
             #   - 0
             aperture :
                 - 'Gaussian'
-                - 0.01
+                - 0.00005
             aperture_efficiency :
                 - 'Gaussian'
                 - 0.01
@@ -126,4 +126,4 @@ statistical :
         pa :
             power :
                 - 'Gaussian'
-                - 0.2
+                - 0.1

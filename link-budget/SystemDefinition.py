@@ -497,7 +497,7 @@ class SystemDefinition:
         for interval in intervals:
             offset = interval/2
             confidence.append(data[int((0.5-offset)*length)])
-            confidence.append(data[int((0.5-offset)*length)])
+            confidence.append(data[int((0.5+offset)*length)])
                       
         return confidence
 
