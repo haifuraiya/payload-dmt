@@ -6,7 +6,7 @@ An initial risk analysis of the architecture was performed as the basis of these
 
 The system architecture is shown below with hot (red) and cold (blue) redundant systems.
 
-![System Architecture](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/redundancy_highlighting.svg "System Architecture")
+![System Architecture](https://github.com/phase4space/payload-dmt/blob/master/doc/reliability/diagrams/Redundancy-Zones-ARExV3.png "System Architecture")
 
 The feasibility of adding these redundant systems is dependant on the available volume and the architecture will evolve over time.  The following items serve as a starting point for the discussion.
 
